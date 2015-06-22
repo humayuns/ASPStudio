@@ -12,13 +12,16 @@
         For Each f In IO.Directory.GetFiles(TextBox1.Text)
 
 
-            If TextBox2.Text <> "" AndAlso f.ToUpper.Contains(TextBox2.Text.ToUpper) Then
+            If TextBox2.Text = "" Or f.ToUpper.Contains(TextBox2.Text.ToUpper) Then
                 Dim newnode = TreeView1.Nodes.Add(f.Replace(TextBox1.Text, ""))
 
                 Dim filetext = IO.File.ReadAllText(f)
 
                 If filetext.Contains("#include") Then
-                    newnode.Nodes.Add("includes")
+
+                    For i = 1 To CountSubString(filetext, "#include")
+                        newnode.Nodes.Add("includes")
+                    Next
                 End If
             End If
         Next
@@ -40,4 +43,10 @@
             End If
         End If
     End Sub
+
+    Function CountSubString(text As String, search As String) As Integer
+        Dim Occurrences As Integer = (text.Length - text.Replace(search, String.Empty).Length) / search.Length
+        Return Occurrences
+    End Function
+
 End Class
