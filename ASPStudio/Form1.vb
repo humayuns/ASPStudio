@@ -12,7 +12,7 @@
         For Each f In IO.Directory.GetFiles(TextBox1.Text)
 
 
-            If TextBox2.Text <> "" AndAlso f.Contains(TextBox2.Text) Then
+            If TextBox2.Text <> "" AndAlso f.ToUpper.Contains(TextBox2.Text.ToUpper) Then
                 Dim newnode = TreeView1.Nodes.Add(f.Replace(TextBox1.Text, ""))
 
                 Dim filetext = IO.File.ReadAllText(f)
