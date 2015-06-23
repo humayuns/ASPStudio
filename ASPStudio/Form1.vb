@@ -17,12 +17,10 @@
 
                 Dim filetext = IO.File.ReadAllText(f)
 
-                If filetext.Contains("#include") Then
 
-                    For i = 1 To CountSubString(filetext, "#include")
-                        newnode.Nodes.Add("includes")
-                    Next
-                End If
+                For Each s In GetListOfIncludes(filetext:=filetext)
+                    newnode.Nodes.Add(s)
+                Next
             End If
         Next
 
@@ -44,9 +42,22 @@
         End If
     End Sub
 
-    Function CountSubString(text As String, search As String) As Integer
-        Dim Occurrences As Integer = (text.Length - text.Replace(search, String.Empty).Length) / search.Length
-        Return Occurrences
+
+
+    Function GetListOfIncludes(filetext As String) As List(Of String)
+        Dim list As New List(Of String)
+
+
+        Dim regex = New System.Text.RegularExpressions.Regex("#include\W+file=""([^""]+)""")
+        Dim matchResult = regex.Match(filetext)
+        While matchResult.Success
+            list.Add(matchResult.Groups(1).Value)
+            matchResult = matchResult.NextMatch()
+        End While
+
+        Return list
     End Function
 
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    End Sub
 End Class
