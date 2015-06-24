@@ -51,7 +51,7 @@
         If Not TreeView1.SelectedNode Is Nothing AndAlso TreeView1.SelectedNode.Text <> "" Then
             If IO.File.Exists(TextBox1.Text & TreeView1.SelectedNode.Text) Then
                 RichTextBox1.Text = IO.File.ReadAllText(TextBox1.Text & TreeView1.SelectedNode.Text)
-                TextBox3.Text = TextBox1.Text & TreeView1.SelectedNode.Text
+                TextBox3.Text = TreeView1.SelectedNode.FullPath
             End If
         End If
     End Sub
