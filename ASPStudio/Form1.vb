@@ -15,11 +15,14 @@
 
             If TextBox2.Text = "" Or f.ToUpper.Contains(TextBox2.Text.ToUpper) Then
                 Dim newnode = TreeView1.Nodes.Add(f.Replace(TextBox1.Text, ""))
+                newnode.Tag = f
 
                 Dim filetext = IO.File.ReadAllText(f)
 
+                'AddNodes(f, filetext, newnode)
+
                 Try
-                    AddNodes(filetext, newnode)
+                    AddNodes(f, filetext, newnode)
                 Catch ex As Exception
                     MsgBox(ex.ToString)
                 End Try
@@ -31,12 +34,14 @@
 
     End Sub
 
-    Private Sub AddNodes(filetext As String, node As TreeNode)
+    Private Sub AddNodes(filename As String, filetext As String, node As TreeNode)
         For Each s In GetListOfIncludes(filetext:=filetext)
-            Dim newnode = node.Nodes.Add(s)
-            Dim newfiletext = IO.File.ReadAllText(TextBox1.Text & s)
+            Dim newnode = node.Nodes.Add(s.Replace("../", ""))
+            Dim newpath = IO.Path.GetDirectoryName(filename) & "\"
+            newnode.Tag = newpath & s
+            Dim newfiletext = IO.File.ReadAllText(newpath & s)
 
-            AddNodes(newfiletext, newnode)
+            AddNodes(newpath & s, newfiletext, newnode)
         Next
     End Sub
 
@@ -49,8 +54,8 @@
 
     Private Sub TreeView1_AfterSelect(sender As Object, e As TreeViewEventArgs) Handles TreeView1.AfterSelect
         If Not TreeView1.SelectedNode Is Nothing AndAlso TreeView1.SelectedNode.Text <> "" Then
-            If IO.File.Exists(TextBox1.Text & TreeView1.SelectedNode.Text) Then
-                RichTextBox1.Text = IO.File.ReadAllText(TextBox1.Text & TreeView1.SelectedNode.Text)
+            If IO.File.Exists(TreeView1.SelectedNode.Tag) Then
+                RichTextBox1.Text = IO.File.ReadAllText(TreeView1.SelectedNode.Tag)
                 TextBox3.Text = TreeView1.SelectedNode.FullPath
             End If
         End If
@@ -71,6 +76,39 @@
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TextBox1.Text = "C:\Users\Humayun\Documents\Pentius\VaultCode\IIS1\Staging\myscore.com\"
+        TextBox2.Text = "signup_rto"
 
     End Sub
+
+    Private Sub btnGenerateMergedPage_Click(sender As Object, e As EventArgs) Handles btnGenerateMergedPage.Click
+        RichTextBox1.Text = GetMergedPage(TreeView1.SelectedNode.Tag)
+    End Sub
+
+    Private Function GetMergedPage(filename As String) As String
+
+        Dim filecontent = IO.File.ReadAllText(filename)
+        Dim filepath = filename.Replace(IO.Path.GetFileName(filename), "")
+
+        Dim filecontentmerged = ""
+
+        Dim list As New List(Of String)
+        Dim regex = New System.Text.RegularExpressions.Regex("<!-- #include\W+file[\s]*=[\s]*""([^""]+)"" -->")
+        Dim matchResult = regex.Match(filecontent)
+        While matchResult.Success
+            list.Add(matchResult.Groups(1).Value)
+
+            Dim includefile = matchResult.Value
+
+
+            filecontent = filecontent.Replace(includefile, IO.File.ReadAllText(filepath & matchResult.Groups(1).Value))
+
+            matchResult = matchResult.NextMatch()
+        End While
+
+
+
+        Return filecontent
+    End Function
+
 End Class

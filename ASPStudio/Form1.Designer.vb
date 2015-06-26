@@ -32,6 +32,7 @@ Partial Class Form1
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.btnGenerateMergedPage = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -146,6 +147,7 @@ Partial Class Form1
         '
         'SplitContainer2.Panel2
         '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.btnGenerateMergedPage)
         Me.SplitContainer2.Panel2.Controls.Add(Me.TextBox1)
         Me.SplitContainer2.Panel2.Controls.Add(Me.Label2)
         Me.SplitContainer2.Panel2.Controls.Add(Me.Button1)
@@ -153,6 +155,15 @@ Partial Class Form1
         Me.SplitContainer2.Size = New System.Drawing.Size(1023, 591)
         Me.SplitContainer2.SplitterDistance = 502
         Me.SplitContainer2.TabIndex = 8
+        '
+        'btnGenerateMergedPage
+        '
+        Me.btnGenerateMergedPage.Location = New System.Drawing.Point(84, 41)
+        Me.btnGenerateMergedPage.Name = "btnGenerateMergedPage"
+        Me.btnGenerateMergedPage.Size = New System.Drawing.Size(136, 23)
+        Me.btnGenerateMergedPage.TabIndex = 8
+        Me.btnGenerateMergedPage.Text = "Generate Merged Page"
+        Me.btnGenerateMergedPage.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -185,5 +196,6 @@ Partial Class Form1
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents btnGenerateMergedPage As System.Windows.Forms.Button
 
 End Class
