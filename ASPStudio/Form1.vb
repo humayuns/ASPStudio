@@ -76,13 +76,25 @@
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TextBox1.Text = "C:\Users\Humayun\Documents\Pentius\VaultCode\IIS1\Staging\myscore.com\"
-        TextBox2.Text = ""
 
     End Sub
 
     Private Sub btnGenerateMergedPage_Click(sender As Object, e As EventArgs) Handles btnGenerateMergedPage.Click
         RichTextBox1.Text = GetMergedPage(TreeView1.SelectedNode.Tag)
+
+        ComboBox1.Items.Clear()
+        For Each s In GetFunctionsList(RichTextBox1.Text)
+            ComboBox1.Items.Add("Function " & s)
+        Next
+
+        For Each s In GetSubroutinesList(RichTextBox1.Text)
+            ComboBox1.Items.Add("Sub " & s)
+        Next
+
+        ComboBox2.Items.Clear()
+        For Each s In GetClassesList(RichTextBox1.Text)
+            ComboBox2.Items.Add(s)
+        Next
     End Sub
 
     Private Function GetMergedPage(filename As String) As String
@@ -130,5 +142,48 @@
         If e.Data.GetDataPresent(DataFormats.FileDrop) Then
             e.Effect = DragDropEffects.All
         End If
+    End Sub
+
+    Private Function GetFunctionsList(source As String) As List(Of String)
+        Dim fl As New List(Of String)
+        Dim regex = New System.Text.RegularExpressions.Regex("Function[\s\n]+(\S+)[\s\n]*\(")
+        Dim matchResult = regex.Match(source)
+        While matchResult.Success
+            fl.Add(matchResult.Groups(1).Value)
+            matchResult = matchResult.NextMatch()
+        End While
+
+        Return fl
+    End Function
+
+    Private Function GetSubroutinesList(source As String) As List(Of String)
+        Dim fl As New List(Of String)
+        Dim regex = New System.Text.RegularExpressions.Regex("Sub[\s\n]+(\S+)[\s\n]*\(")
+        Dim matchResult = regex.Match(source)
+        While matchResult.Success
+            fl.Add(matchResult.Groups(1).Value)
+            matchResult = matchResult.NextMatch()
+        End While
+
+        Return fl
+    End Function
+
+    Private Function GetClassesList(source As String) As List(Of String)
+        Dim cl As New List(Of String)
+        Dim regex = New System.Text.RegularExpressions.Regex("Class[\s\n]+(\S+)[^\n]")
+        Dim matchResult = regex.Match(source)
+        While matchResult.Success
+            cl.Add(matchResult.Groups(1).Value)
+            matchResult = matchResult.NextMatch()
+        End While
+        Return cl
+    End Function
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        RichTextBoxUtils.HighlightText(RichTextBox1, ComboBox1.Text, Color.Blue)
+    End Sub
+
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        RichTextBoxUtils.HighlightText(RichTextBox1, ComboBox2.Text, Color.Blue)
     End Sub
 End Class
