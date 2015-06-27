@@ -77,7 +77,7 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TextBox1.Text = "C:\Users\Humayun\Documents\Pentius\VaultCode\IIS1\Staging\myscore.com\"
-        TextBox2.Text = "signup_rto"
+        TextBox2.Text = ""
 
     End Sub
 
@@ -111,4 +111,24 @@
         Return filecontent
     End Function
 
+
+    Private Sub Form1_DragDrop(sender As Object, e As DragEventArgs) Handles MyBase.DragDrop
+        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
+            Dim s As String()
+            s = e.Data.GetData(DataFormats.FileDrop)
+            If FileFunctions.IsFile(s(0)) Then
+                TextBox1.Text = FileFunctions.GetFilePath(s(0))
+                TextBox2.Text = FileFunctions.GetFileName(s(0))
+                Button1.PerformClick()
+            Else
+                TextBox1.Text = s(0)
+            End If
+        End If
+    End Sub
+
+    Private Sub Form1_DragEnter(sender As Object, e As DragEventArgs) Handles MyBase.DragEnter
+        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
+            e.Effect = DragDropEffects.All
+        End If
+    End Sub
 End Class

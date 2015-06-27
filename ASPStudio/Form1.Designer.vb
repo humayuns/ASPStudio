@@ -22,17 +22,17 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.btnGenerateMergedPage = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -42,16 +42,6 @@ Partial Class Form1
         Me.SplitContainer2.Panel2.SuspendLayout()
         Me.SplitContainer2.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'TreeView1
-        '
-        Me.TreeView1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.TreeView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TreeView1.HotTracking = True
-        Me.TreeView1.Location = New System.Drawing.Point(0, 13)
-        Me.TreeView1.Name = "TreeView1"
-        Me.TreeView1.Size = New System.Drawing.Size(255, 489)
-        Me.TreeView1.TabIndex = 0
         '
         'Button1
         '
@@ -118,21 +108,16 @@ Partial Class Form1
         Me.TextBox3.Size = New System.Drawing.Size(255, 20)
         Me.TextBox3.TabIndex = 4
         '
-        'TextBox2
+        'TreeView1
         '
-        Me.TextBox2.Location = New System.Drawing.Point(435, 15)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(149, 20)
-        Me.TextBox2.TabIndex = 6
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(395, 21)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(32, 13)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "Filter:"
+        Me.TreeView1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.TreeView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TreeView1.HotTracking = True
+        Me.TreeView1.LabelEdit = True
+        Me.TreeView1.Location = New System.Drawing.Point(0, 13)
+        Me.TreeView1.Name = "TreeView1"
+        Me.TreeView1.Size = New System.Drawing.Size(255, 489)
+        Me.TreeView1.TabIndex = 0
         '
         'SplitContainer2
         '
@@ -165,8 +150,25 @@ Partial Class Form1
         Me.btnGenerateMergedPage.Text = "Generate Merged Page"
         Me.btnGenerateMergedPage.UseVisualStyleBackColor = True
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(395, 21)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(32, 13)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Filter:"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(435, 15)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(149, 20)
+        Me.TextBox2.TabIndex = 6
+        '
         'Form1
         '
+        Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1023, 591)
@@ -186,16 +188,16 @@ Partial Class Form1
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents btnGenerateMergedPage As System.Windows.Forms.Button
+    Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
 
 End Class
