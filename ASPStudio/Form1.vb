@@ -82,6 +82,7 @@
     Private Sub btnGenerateMergedPage_Click(sender As Object, e As EventArgs) Handles btnGenerateMergedPage.Click
         RichTextBox1.Text = GetMergedPage(TreeView1.SelectedNode.Tag)
 
+        ComboBox1.Text = ""
         ComboBox1.Items.Clear()
         For Each s In GetFunctionsList(RichTextBox1.Text)
             ComboBox1.Items.Add("Function " & s)
@@ -91,9 +92,12 @@
             ComboBox1.Items.Add("Sub " & s)
         Next
 
+        ComboBox2.Text = ""
         ComboBox2.Items.Clear()
         For Each s In GetClassesList(RichTextBox1.Text)
-            ComboBox2.Items.Add(s)
+            If Not "%".Contains(s) Then
+                ComboBox2.Items.Add("Class " & s)
+            End If
         Next
     End Sub
 
@@ -146,7 +150,7 @@
 
     Private Function GetFunctionsList(source As String) As List(Of String)
         Dim fl As New List(Of String)
-        Dim regex = New System.Text.RegularExpressions.Regex("Function[\s\n]+(\S+)[\s\n]*\(")
+        Dim regex = New System.Text.RegularExpressions.Regex("[F-f]unction[\s\n]+(\S+)[\s\n]*\(")
         Dim matchResult = regex.Match(source)
         While matchResult.Success
             fl.Add(matchResult.Groups(1).Value)
@@ -158,7 +162,7 @@
 
     Private Function GetSubroutinesList(source As String) As List(Of String)
         Dim fl As New List(Of String)
-        Dim regex = New System.Text.RegularExpressions.Regex("Sub[\s\n]+(\S+)[\s\n]*\(")
+        Dim regex = New System.Text.RegularExpressions.Regex("[S-s]ub[\s\n]+(\S+)[\s\n]*\(")
         Dim matchResult = regex.Match(source)
         While matchResult.Success
             fl.Add(matchResult.Groups(1).Value)
@@ -170,7 +174,7 @@
 
     Private Function GetClassesList(source As String) As List(Of String)
         Dim cl As New List(Of String)
-        Dim regex = New System.Text.RegularExpressions.Regex("Class[\s\n]+(\S+)[^\n]")
+        Dim regex = New System.Text.RegularExpressions.Regex("[C-c]lass[\s\n]+(\S+)[^\n]")
         Dim matchResult = regex.Match(source)
         While matchResult.Success
             cl.Add(matchResult.Groups(1).Value)
@@ -181,9 +185,13 @@
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         RichTextBoxUtils.HighlightText(RichTextBox1, ComboBox1.Text, Color.Blue)
+        RichTextBox1.SelectionStart = Strings.InStr(RichTextBox1.Text, ComboBox1.Text, CompareMethod.Text)
+        RichTextBox1.ScrollToCaret()
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
         RichTextBoxUtils.HighlightText(RichTextBox1, ComboBox2.Text, Color.Blue)
+        RichTextBox1.SelectionStart = Strings.InStr(RichTextBox1.Text, ComboBox2.Text, CompareMethod.Text)
+        RichTextBox1.ScrollToCaret()
     End Sub
 End Class
