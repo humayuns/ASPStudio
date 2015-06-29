@@ -194,4 +194,19 @@
         RichTextBox1.SelectionStart = Strings.InStr(RichTextBox1.Text, ComboBox2.Text, CompareMethod.Text)
         RichTextBox1.ScrollToCaret()
     End Sub
+
+    Private Sub ContextMenuStrip1_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles ContextMenuStrip1.ItemClicked
+        Select Case e.ClickedItem.Text
+            Case "Open Containing Folder"
+                Process.Start("explorer.exe", "/select," & TreeView1.SelectedNode.Tag)
+
+        End Select
+    End Sub
+
+
+    Private Sub TreeView1_NodeMouseClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseClick
+        If e.Button = Windows.Forms.MouseButtons.Right Then
+            TreeView1.SelectedNode = e.Node
+        End If
+    End Sub
 End Class

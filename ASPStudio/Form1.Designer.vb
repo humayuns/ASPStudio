@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -29,6 +30,8 @@ Partial Class Form1
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.OpenContainingFolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -39,6 +42,7 @@ Partial Class Form1
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
+        Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.SplitContainer2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer2.Panel1.SuspendLayout()
         Me.SplitContainer2.Panel2.SuspendLayout()
@@ -112,6 +116,7 @@ Partial Class Form1
         '
         'TreeView1
         '
+        Me.TreeView1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.TreeView1.Cursor = System.Windows.Forms.Cursors.Hand
         Me.TreeView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TreeView1.HotTracking = True
@@ -120,6 +125,18 @@ Partial Class Form1
         Me.TreeView1.Name = "TreeView1"
         Me.TreeView1.Size = New System.Drawing.Size(255, 489)
         Me.TreeView1.TabIndex = 0
+        '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenContainingFolderToolStripMenuItem})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(202, 26)
+        '
+        'OpenContainingFolderToolStripMenuItem
+        '
+        Me.OpenContainingFolderToolStripMenuItem.Name = "OpenContainingFolderToolStripMenuItem"
+        Me.OpenContainingFolderToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.OpenContainingFolderToolStripMenuItem.Text = "Open Containing Folder"
         '
         'SplitContainer2
         '
@@ -200,6 +217,7 @@ Partial Class Form1
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
         Me.SplitContainer2.Panel2.PerformLayout()
@@ -221,5 +239,7 @@ Partial Class Form1
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents OpenContainingFolderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
