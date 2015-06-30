@@ -199,7 +199,6 @@
         Select Case e.ClickedItem.Text
             Case "Open Containing Folder"
                 Process.Start("explorer.exe", "/select," & TreeView1.SelectedNode.Tag)
-
         End Select
     End Sub
 
