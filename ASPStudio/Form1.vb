@@ -64,15 +64,7 @@
 
 
     Function GetListOfIncludes(filetext As String) As List(Of String)
-        Dim list As New List(Of String)
-        Dim regex = New System.Text.RegularExpressions.Regex("#include\W+file[\s]*=[\s]*""([^""]+)""")
-        Dim matchResult = regex.Match(filetext)
-        While matchResult.Success
-            list.Add(matchResult.Groups(1).Value)
-            matchResult = matchResult.NextMatch()
-        End While
-
-        Return list
+        Return RegexPatterns.GetListOfMatches(filetext, "#include\W+file[\s]*=[\s]*""([^""]+)""")
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load

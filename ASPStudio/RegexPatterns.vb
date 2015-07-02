@@ -16,4 +16,17 @@ Module RegexPatterns
         Return emailExpression.IsMatch(email)
     End Function
 
+
+    Function GetListOfMatches(text As String, expression As String) As List(Of String)
+        Dim list As New List(Of String)
+        Dim regex = New System.Text.RegularExpressions.Regex(expression)
+        Dim matchResult = regex.Match(text)
+        While matchResult.Success
+            list.Add(matchResult.Groups(1).Value)
+            matchResult = matchResult.NextMatch()
+        End While
+
+        Return list
+    End Function
+
 End Module
