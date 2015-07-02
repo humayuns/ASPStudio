@@ -117,6 +117,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="RegexPatterns.vb" />
     <Compile Include="RichTextBoxUtils.vb" />
     <Compile Include="StringFunctions.vb" />
   </ItemGroup>
