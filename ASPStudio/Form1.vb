@@ -76,8 +76,7 @@
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TextBox1.Text = "C:\Users\Humayun\Documents\Pentius\VaultCode\IIS1\Staging\myscore.com\"
-        TextBox2.Text = "signup_rto3.asp"
+
 
     End Sub
 
