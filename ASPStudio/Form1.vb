@@ -99,6 +99,11 @@
         Dim filecontent = IO.File.ReadAllText(filename)
         Dim filepath = filename.Replace(IO.Path.GetFileName(filename), "")
 
+        Return GetMergedPage(filecontent, filepath)
+
+    End Function
+
+    Private Function GetMergedPage(filecontent As String, filepath As String) As String
         Dim filecontentmerged = ""
 
         Dim list As New List(Of String)
