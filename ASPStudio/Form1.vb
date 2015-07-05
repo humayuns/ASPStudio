@@ -147,38 +147,15 @@
     End Sub
 
     Private Function GetFunctionsList(source As String) As List(Of String)
-        Dim fl As New List(Of String)
-        Dim regex = New System.Text.RegularExpressions.Regex("[F-f]unction[\s\n]+(\S+)[\s\n]*\(")
-        Dim matchResult = regex.Match(source)
-        While matchResult.Success
-            fl.Add(matchResult.Groups(1).Value)
-            matchResult = matchResult.NextMatch()
-        End While
-
-        Return fl
+        Return RegexPatterns.GetListOfMatches(source, "[F-f]unction[\s\n]+(\S+)[\s\n]*\(")
     End Function
 
     Private Function GetSubroutinesList(source As String) As List(Of String)
-        Dim fl As New List(Of String)
-        Dim regex = New System.Text.RegularExpressions.Regex("[S-s]ub[\s\n]+(\S+)[\s\n]*\(")
-        Dim matchResult = regex.Match(source)
-        While matchResult.Success
-            fl.Add(matchResult.Groups(1).Value)
-            matchResult = matchResult.NextMatch()
-        End While
-
-        Return fl
+        Return RegexPatterns.GetListOfMatches(source, "[S-s]ub[\s\n]+(\S+)[\s\n]*\(")
     End Function
 
     Private Function GetClassesList(source As String) As List(Of String)
-        Dim cl As New List(Of String)
-        Dim regex = New System.Text.RegularExpressions.Regex("[C-c]lass[\s\n]+(\S+)[^\n]")
-        Dim matchResult = regex.Match(source)
-        While matchResult.Success
-            cl.Add(matchResult.Groups(1).Value)
-            matchResult = matchResult.NextMatch()
-        End While
-        Return cl
+        Return RegexPatterns.GetListOfMatches(source, "[C-c]lass[\s\n]+(\S+)[^\n]")
     End Function
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
