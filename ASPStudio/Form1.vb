@@ -57,6 +57,7 @@
             If IO.File.Exists(TreeView1.SelectedNode.Tag) Then
                 RichTextBox1.Text = IO.File.ReadAllText(TreeView1.SelectedNode.Tag)
                 TextBox3.Text = TreeView1.SelectedNode.FullPath
+                LoadFunctionsAndClases()
             End If
         End If
     End Sub
@@ -75,23 +76,7 @@
     Private Sub btnGenerateMergedPage_Click(sender As Object, e As EventArgs) Handles btnGenerateMergedPage.Click
         RichTextBox1.Text = GetMergedPage(TreeView1.SelectedNode.Tag)
 
-        ComboBox1.Text = ""
-        ComboBox1.Items.Clear()
-        For Each s In GetFunctionsList(RichTextBox1.Text)
-            ComboBox1.Items.Add("Function " & s)
-        Next
-
-        For Each s In GetSubroutinesList(RichTextBox1.Text)
-            ComboBox1.Items.Add("Sub " & s)
-        Next
-
-        ComboBox2.Text = ""
-        ComboBox2.Items.Clear()
-        For Each s In GetClassesList(RichTextBox1.Text)
-            If Not "%".Contains(s) Then
-                ComboBox2.Items.Add("Class " & s)
-            End If
-        Next
+        LoadFunctionsAndClases()
     End Sub
 
     Private Function GetMergedPage(filename As String) As String
@@ -183,4 +168,25 @@
             TreeView1.SelectedNode = e.Node
         End If
     End Sub
+
+    Private Sub LoadFunctionsAndClases()
+        ComboBox1.Text = ""
+        ComboBox1.Items.Clear()
+        For Each s In GetFunctionsList(RichTextBox1.Text)
+            ComboBox1.Items.Add("Function " & s)
+        Next
+
+        For Each s In GetSubroutinesList(RichTextBox1.Text)
+            ComboBox1.Items.Add("Sub " & s)
+        Next
+
+        ComboBox2.Text = ""
+        ComboBox2.Items.Clear()
+        For Each s In GetClassesList(RichTextBox1.Text)
+            If Not "%".Contains(s) Then
+                ComboBox2.Items.Add("Class " & s)
+            End If
+        Next
+    End Sub
+
 End Class
