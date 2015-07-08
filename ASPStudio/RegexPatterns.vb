@@ -3,6 +3,9 @@
 Module RegexPatterns
 
 
+    Public Const ASP_INCLUDE_NEW = "<!--\s*#Include\s*File\s*=\s*""([^""]+)""\s*-->"
+    Public Const ASP_INCLUDE = "#include\s*file[\s]*=[\s]*""([^""]+)"""
+
 
     'Regular expression for selecting procedure of classic asp
     ' http://stackoverflow.com/questions/21901096/regular-expression-for-selecting-procedure-of-classic-asp?rq=1
@@ -17,9 +20,10 @@ Module RegexPatterns
     End Function
 
 
+
     Function GetListOfMatches(text As String, expression As String) As List(Of String)
         Dim list As New List(Of String)
-        Dim regex = New System.Text.RegularExpressions.Regex(expression)
+        Dim regex = New System.Text.RegularExpressions.Regex(expression, RegexOptions.IgnoreCase)
         Dim matchResult = regex.Match(text)
         While matchResult.Success
             list.Add(matchResult.Groups(1).Value)

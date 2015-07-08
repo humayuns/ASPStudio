@@ -65,7 +65,7 @@
 
 
     Function GetListOfIncludes(filetext As String) As List(Of String)
-        Return RegexPatterns.GetListOfMatches(filetext, "#include\W+file[\s]*=[\s]*""([^""]+)""")
+        Return RegexPatterns.GetListOfMatches(filetext, RegexPatterns.ASP_INCLUDE)
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -92,7 +92,7 @@
         Dim filecontentmerged = ""
 
         Dim list As New List(Of String)
-        Dim regex = New System.Text.RegularExpressions.Regex("<!-- #include\W+file[\s]*=[\s]*""([^""]+)"" -->")
+        Dim regex = New System.Text.RegularExpressions.Regex(RegexPatterns.ASP_INCLUDE)
         Dim matchResult = regex.Match(filecontent)
         While matchResult.Success
             list.Add(matchResult.Groups(1).Value)
