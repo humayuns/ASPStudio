@@ -2,6 +2,11 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
+        If TextBox1.Text = "" Then
+            MsgBox("Path cannot be empty!", vbCritical)
+            TextBox1.Focus()
+            Exit Sub
+        End If
 
 
         If Strings.Right(TextBox1.Text, 1) <> "\" Then TextBox1.Text &= "\"
