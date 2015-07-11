@@ -16,7 +16,7 @@
 
 
         For Each file In IO.Directory.GetFiles(path)
-            Dim includes = RegexPatterns.GetListOfIncludeFiles(FileFunctions.GetFileContent(file))
+            Dim includes = GetListOfIncludeFiles(FileFunctions.GetFileContent(file))
 
             If includes.Contains(IO.Path.GetFileName(filename)) Then
 
@@ -26,6 +26,10 @@
         Next
 
         Return filelist
+    End Function
+
+    Function GetListOfIncludeFiles(text As String) As List(Of String)
+        Return GetListOfMatches(text, ASP_INCLUDE)
     End Function
 
 End Module
