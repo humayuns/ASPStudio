@@ -10,4 +10,11 @@
     End Function
 
 
+
+    Function GetDependantFiles(filename As String, path As String) As List(Of String)
+        Dim filelist As New List(Of String)
+
+        Return filelist
+    End Function
+
 End Module
