@@ -15,26 +15,8 @@
         RichTextBox1.Clear()
         TextBox3.Clear()
 
-        For Each f In IO.Directory.GetFiles(TextBox1.Text)
+        LoadFilesToTree()
 
-
-            If TextBox2.Text = "" Or f.ToUpper.Contains(TextBox2.Text.ToUpper) Then
-                Dim newnode = TreeView1.Nodes.Add(f.Replace(TextBox1.Text, ""))
-                newnode.Tag = f
-
-                Dim filetext = IO.File.ReadAllText(f)
-
-                'AddNodes(f, filetext, newnode)
-
-                Try
-                    AddNodes(f, filetext, newnode)
-                Catch ex As Exception
-                    MsgBox(ex.ToString)
-                End Try
-
-
-            End If
-        Next
 
 
     End Sub
@@ -164,6 +146,10 @@
         Select Case e.ClickedItem.Text
             Case "Open Containing Folder"
                 Process.Start("explorer.exe", "/select," & TreeView1.SelectedNode.Tag)
+            Case "Generate Merged Page"
+                btnGenerateMergedPage.PerformClick()
+            Case "Get Dependant Files"
+                btnGetDependantFiles.PerformClick()
         End Select
     End Sub
 
@@ -208,6 +194,29 @@
 
         End If
 
+    End Sub
+
+    Private Sub LoadFilesToTree()
+        For Each f In IO.Directory.GetFiles(TextBox1.Text)
+
+
+            If TextBox2.Text = "" Or f.ToUpper.Contains(TextBox2.Text.ToUpper) Then
+                Dim newnode = TreeView1.Nodes.Add(f.Replace(TextBox1.Text, ""))
+                newnode.Tag = f
+
+                Dim filetext = IO.File.ReadAllText(f)
+
+                'AddNodes(f, filetext, newnode)
+
+                Try
+                    AddNodes(f, filetext, newnode)
+                Catch ex As Exception
+                    MsgBox(ex.ToString)
+                End Try
+
+
+            End If
+        Next
     End Sub
 
 End Class

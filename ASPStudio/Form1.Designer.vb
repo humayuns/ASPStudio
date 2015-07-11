@@ -33,12 +33,14 @@ Partial Class Form1
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.OpenContainingFolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.btnGetDependantFiles = New System.Windows.Forms.Button()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.btnGenerateMergedPage = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.btnGetDependantFiles = New System.Windows.Forms.Button()
+        Me.GenerateMergedPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GetDependantFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -129,9 +131,9 @@ Partial Class Form1
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenContainingFolderToolStripMenuItem})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenContainingFolderToolStripMenuItem, Me.GenerateMergedPageToolStripMenuItem, Me.GetDependantFilesToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(202, 26)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(202, 92)
         '
         'OpenContainingFolderToolStripMenuItem
         '
@@ -163,6 +165,15 @@ Partial Class Form1
         Me.SplitContainer2.Size = New System.Drawing.Size(1023, 591)
         Me.SplitContainer2.SplitterDistance = 502
         Me.SplitContainer2.TabIndex = 8
+        '
+        'btnGetDependantFiles
+        '
+        Me.btnGetDependantFiles.Location = New System.Drawing.Point(226, 41)
+        Me.btnGetDependantFiles.Name = "btnGetDependantFiles"
+        Me.btnGetDependantFiles.Size = New System.Drawing.Size(136, 23)
+        Me.btnGetDependantFiles.TabIndex = 11
+        Me.btnGetDependantFiles.Text = "Get Dependant Files"
+        Me.btnGetDependantFiles.UseVisualStyleBackColor = True
         '
         'ComboBox2
         '
@@ -205,14 +216,17 @@ Partial Class Form1
         Me.TextBox2.Size = New System.Drawing.Size(149, 20)
         Me.TextBox2.TabIndex = 6
         '
-        'btnGetDependantFiles
+        'GenerateMergedPageToolStripMenuItem
         '
-        Me.btnGetDependantFiles.Location = New System.Drawing.Point(226, 41)
-        Me.btnGetDependantFiles.Name = "btnGetDependantFiles"
-        Me.btnGetDependantFiles.Size = New System.Drawing.Size(136, 23)
-        Me.btnGetDependantFiles.TabIndex = 11
-        Me.btnGetDependantFiles.Text = "Get Dependant Files"
-        Me.btnGetDependantFiles.UseVisualStyleBackColor = True
+        Me.GenerateMergedPageToolStripMenuItem.Name = "GenerateMergedPageToolStripMenuItem"
+        Me.GenerateMergedPageToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.GenerateMergedPageToolStripMenuItem.Text = "Generate Merged Page"
+        '
+        'GetDependantFilesToolStripMenuItem
+        '
+        Me.GetDependantFilesToolStripMenuItem.Name = "GetDependantFilesToolStripMenuItem"
+        Me.GetDependantFilesToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.GetDependantFilesToolStripMenuItem.Text = "Get Dependant Files"
         '
         'Form1
         '
@@ -253,5 +267,7 @@ Partial Class Form1
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents OpenContainingFolderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnGetDependantFiles As System.Windows.Forms.Button
+    Friend WithEvents GenerateMergedPageToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GetDependantFilesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
