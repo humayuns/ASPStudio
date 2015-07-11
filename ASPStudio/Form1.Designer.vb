@@ -38,6 +38,7 @@ Partial Class Form1
         Me.btnGenerateMergedPage = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.btnGetDependantFiles = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -151,6 +152,7 @@ Partial Class Form1
         '
         'SplitContainer2.Panel2
         '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.btnGetDependantFiles)
         Me.SplitContainer2.Panel2.Controls.Add(Me.ComboBox2)
         Me.SplitContainer2.Panel2.Controls.Add(Me.ComboBox1)
         Me.SplitContainer2.Panel2.Controls.Add(Me.btnGenerateMergedPage)
@@ -203,6 +205,15 @@ Partial Class Form1
         Me.TextBox2.Size = New System.Drawing.Size(149, 20)
         Me.TextBox2.TabIndex = 6
         '
+        'btnGetDependantFiles
+        '
+        Me.btnGetDependantFiles.Location = New System.Drawing.Point(226, 41)
+        Me.btnGetDependantFiles.Name = "btnGetDependantFiles"
+        Me.btnGetDependantFiles.Size = New System.Drawing.Size(136, 23)
+        Me.btnGetDependantFiles.TabIndex = 11
+        Me.btnGetDependantFiles.Text = "Get Dependant Files"
+        Me.btnGetDependantFiles.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AllowDrop = True
@@ -241,5 +252,6 @@ Partial Class Form1
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents OpenContainingFolderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents btnGetDependantFiles As System.Windows.Forms.Button
 
 End Class

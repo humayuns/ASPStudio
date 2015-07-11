@@ -15,4 +15,11 @@
         Return IO.Path.GetFileName(path)
     End Function
 
+    Function GetFileContent(filename As String) As String
+        Return IO.File.ReadAllText(filename)
+    End Function
+
+
+
+
 End Module

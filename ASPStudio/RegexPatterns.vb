@@ -33,4 +33,8 @@ Module RegexPatterns
         Return list
     End Function
 
+    Function GetListOfIncludeFiles(text As String) As List(Of String)
+        Return GetListOfMatches(text, ASP_INCLUDE)
+    End Function
+
 End Module

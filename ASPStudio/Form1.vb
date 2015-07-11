@@ -194,4 +194,20 @@
         Next
     End Sub
 
+    Private Sub btnGetDependantFiles_Click(sender As Object, e As EventArgs) Handles btnGetDependantFiles.Click
+
+
+        If Not TreeView1.SelectedNode Is Nothing AndAlso TreeView1.SelectedNode.Text <> "" Then
+
+            RichTextBox1.Text = ""
+            For Each file In ASPUtils.GetDependantFiles(TreeView1.SelectedNode.Tag, TextBox1.Text)
+                RichTextBox1.Text &= file & vbCrLf
+            Next
+
+
+
+        End If
+
+    End Sub
+
 End Class
