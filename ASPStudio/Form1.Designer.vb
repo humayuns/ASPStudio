@@ -31,9 +31,7 @@ Partial Class Form1
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.OpenContainingFolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GenerateMergedPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GetDependantFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
         Me.btnGetDependantFiles = New System.Windows.Forms.Button()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
@@ -41,7 +39,9 @@ Partial Class Form1
         Me.btnGenerateMergedPage = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.OpenContainingFolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GenerateMergedPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GetDependantFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -55,11 +55,13 @@ Partial Class Form1
         '
         'Button1
         '
+        Me.Button1.Image = Global.ASPStudio.My.Resources.Resources.Services_5724
         Me.Button1.Location = New System.Drawing.Point(3, 41)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 1
         Me.Button1.Text = "Parse"
+        Me.Button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.Button1.UseVisualStyleBackColor = True
         '
         'TextBox1
@@ -134,26 +136,12 @@ Partial Class Form1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenContainingFolderToolStripMenuItem, Me.ToolStripSeparator1, Me.GenerateMergedPageToolStripMenuItem, Me.GetDependantFilesToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(202, 98)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(202, 76)
         '
-        'OpenContainingFolderToolStripMenuItem
+        'ToolStripSeparator1
         '
-        Me.OpenContainingFolderToolStripMenuItem.Image = Global.ASPStudio.My.Resources.Resources.folder_Open_16xLG
-        Me.OpenContainingFolderToolStripMenuItem.Name = "OpenContainingFolderToolStripMenuItem"
-        Me.OpenContainingFolderToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
-        Me.OpenContainingFolderToolStripMenuItem.Text = "Open Containing Folder"
-        '
-        'GenerateMergedPageToolStripMenuItem
-        '
-        Me.GenerateMergedPageToolStripMenuItem.Name = "GenerateMergedPageToolStripMenuItem"
-        Me.GenerateMergedPageToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
-        Me.GenerateMergedPageToolStripMenuItem.Text = "Generate Merged Page"
-        '
-        'GetDependantFilesToolStripMenuItem
-        '
-        Me.GetDependantFilesToolStripMenuItem.Name = "GetDependantFilesToolStripMenuItem"
-        Me.GetDependantFilesToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
-        Me.GetDependantFilesToolStripMenuItem.Text = "Get Dependant Files"
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(198, 6)
         '
         'SplitContainer2
         '
@@ -182,11 +170,13 @@ Partial Class Form1
         '
         'btnGetDependantFiles
         '
-        Me.btnGetDependantFiles.Location = New System.Drawing.Point(226, 41)
+        Me.btnGetDependantFiles.Image = Global.ASPStudio.My.Resources.Resources.asset_treeView_12x12_on
+        Me.btnGetDependantFiles.Location = New System.Drawing.Point(252, 41)
         Me.btnGetDependantFiles.Name = "btnGetDependantFiles"
         Me.btnGetDependantFiles.Size = New System.Drawing.Size(136, 23)
         Me.btnGetDependantFiles.TabIndex = 11
         Me.btnGetDependantFiles.Text = "Get Dependant Files"
+        Me.btnGetDependantFiles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnGetDependantFiles.UseVisualStyleBackColor = True
         '
         'ComboBox2
@@ -207,11 +197,13 @@ Partial Class Form1
         '
         'btnGenerateMergedPage
         '
+        Me.btnGenerateMergedPage.Image = Global.ASPStudio.My.Resources.Resources.Compilablefile_7113
         Me.btnGenerateMergedPage.Location = New System.Drawing.Point(84, 41)
         Me.btnGenerateMergedPage.Name = "btnGenerateMergedPage"
-        Me.btnGenerateMergedPage.Size = New System.Drawing.Size(136, 23)
+        Me.btnGenerateMergedPage.Size = New System.Drawing.Size(146, 23)
         Me.btnGenerateMergedPage.TabIndex = 8
         Me.btnGenerateMergedPage.Text = "Generate Merged Page"
+        Me.btnGenerateMergedPage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.btnGenerateMergedPage.UseVisualStyleBackColor = True
         '
         'Label2
@@ -230,10 +222,26 @@ Partial Class Form1
         Me.TextBox2.Size = New System.Drawing.Size(149, 20)
         Me.TextBox2.TabIndex = 6
         '
-        'ToolStripSeparator1
+        'OpenContainingFolderToolStripMenuItem
         '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(198, 6)
+        Me.OpenContainingFolderToolStripMenuItem.Image = Global.ASPStudio.My.Resources.Resources.folder_Open_16xLG
+        Me.OpenContainingFolderToolStripMenuItem.Name = "OpenContainingFolderToolStripMenuItem"
+        Me.OpenContainingFolderToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.OpenContainingFolderToolStripMenuItem.Text = "Open Containing Folder"
+        '
+        'GenerateMergedPageToolStripMenuItem
+        '
+        Me.GenerateMergedPageToolStripMenuItem.Image = Global.ASPStudio.My.Resources.Resources.Compilablefile_7113
+        Me.GenerateMergedPageToolStripMenuItem.Name = "GenerateMergedPageToolStripMenuItem"
+        Me.GenerateMergedPageToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.GenerateMergedPageToolStripMenuItem.Text = "Generate Merged Page"
+        '
+        'GetDependantFilesToolStripMenuItem
+        '
+        Me.GetDependantFilesToolStripMenuItem.Image = Global.ASPStudio.My.Resources.Resources.asset_treeView_12x12_on
+        Me.GetDependantFilesToolStripMenuItem.Name = "GetDependantFilesToolStripMenuItem"
+        Me.GetDependantFilesToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
+        Me.GetDependantFilesToolStripMenuItem.Text = "Get Dependant Files"
         '
         'Form1
         '

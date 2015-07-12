@@ -148,6 +148,18 @@
   <ItemGroup>
     <None Include="Resources\folder_Open_16xLG.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Compilablefile_7113.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_Closed_16xLG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Services_5724.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asset_treeView_12x12_on.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
