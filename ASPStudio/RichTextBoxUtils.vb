@@ -10,7 +10,7 @@ Module RichTextBoxUtils
 
         Dim s_start As Integer = myRtb.SelectionStart, startIndex As Integer = 0, index As Integer
 
-        While (InlineAssignHelper(index, myRtb.Text.IndexOf(word, startIndex))) <> -1
+        While (InlineAssignHelper(index, myRtb.Text.IndexOf(word, startIndex, StringComparison.InvariantCultureIgnoreCase))) <> -1
             myRtb.[Select](index, word.Length)
             myRtb.SelectionColor = color__1
 
