@@ -44,7 +44,7 @@
             If IO.File.Exists(TreeView1.SelectedNode.Tag) Then
                 RichTextBox1.Text = IO.File.ReadAllText(TreeView1.SelectedNode.Tag)
                 TextBox3.Text = TreeView1.SelectedNode.FullPath
-                LoadFunctionsAndClases()
+                LoadFunctionsAndClasses()
             End If
         End If
     End Sub
@@ -63,7 +63,7 @@
     Private Sub btnGenerateMergedPage_Click(sender As Object, e As EventArgs) Handles btnGenerateMergedPage.Click
         RichTextBox1.Text = GetMergedPage(TreeView1.SelectedNode.Tag)
 
-        LoadFunctionsAndClases()
+        LoadFunctionsAndClasses()
     End Sub
 
     Private Function GetMergedPage(filename As String) As String
@@ -127,7 +127,7 @@
     End Function
 
     Private Function GetClassesList(source As String) As List(Of String)
-        Return RegexPatterns.GetListOfMatches(source, "[C-c]lass[\s\n]+(\S+)[^\n]")
+        Return RegexPatterns.GetListOfMatches(source, "[C-c]lass[\s\n]+(\S+)[\s\n]")
     End Function
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
@@ -160,7 +160,7 @@
         End If
     End Sub
 
-    Private Sub LoadFunctionsAndClases()
+    Private Sub LoadFunctionsAndClasses()
         ComboBox1.Text = ""
         ComboBox1.Items.Clear()
         For Each s In GetFunctionsList(RichTextBox1.Text)

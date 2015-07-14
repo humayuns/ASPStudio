@@ -192,7 +192,7 @@ Partial Class Form1
         'btnGetDependantFiles
         '
         Me.btnGetDependantFiles.Image = Global.ASPStudio.My.Resources.Resources.asset_treeView_12x12_on
-        Me.btnGetDependantFiles.Location = New System.Drawing.Point(252, 41)
+        Me.btnGetDependantFiles.Location = New System.Drawing.Point(236, 41)
         Me.btnGetDependantFiles.Name = "btnGetDependantFiles"
         Me.btnGetDependantFiles.Size = New System.Drawing.Size(136, 23)
         Me.btnGetDependantFiles.TabIndex = 11
