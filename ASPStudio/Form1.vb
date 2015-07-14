@@ -95,9 +95,9 @@
 
             Dim includefile = matchResult.Value
 
-
-            filecontent = filecontent.Replace(includefile, IO.File.ReadAllText(filepath & matchResult.Groups(1).Value))
-
+            If IO.File.Exists(filepath & matchResult.Groups(1).Value) Then
+                filecontent = filecontent.Replace(includefile, IO.File.ReadAllText(filepath & matchResult.Groups(1).Value))
+            End If
             matchResult = matchResult.NextMatch()
         End While
 
