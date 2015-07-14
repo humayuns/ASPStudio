@@ -195,10 +195,13 @@
         If Not TreeView1.SelectedNode Is Nothing AndAlso TreeView1.SelectedNode.Text <> "" Then
 
             RichTextBox1.Text = ""
+            Dim counter As Integer = 0
             For Each file In ASPUtils.GetDependantFiles(TreeView1.SelectedNode.Tag, TextBox1.Text)
                 RichTextBox1.Text &= file & vbCrLf
+                counter += 1
             Next
-
+            RichTextBox1.Text &= "-" & vbCrLf
+            RichTextBox1.Text &= "Total " & counter & " files depend on " & FileFunctions.GetFileName(TreeView1.SelectedNode.Tag)
 
 
         End If
