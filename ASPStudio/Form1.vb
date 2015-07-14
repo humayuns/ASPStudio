@@ -136,7 +136,7 @@
     End Function
 
     Private Function GetClassesList(source As String) As List(Of String)
-        Return RegexPatterns.GetListOfMatches(source, "[C-c]lass[\s\n]+(\S+)[\s\n]")
+        Return RegexPatterns.GetListOfMatches(source, "^\s*Class\s+(\w+)+")
     End Function
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged

@@ -28,7 +28,6 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TreeView1 = New System.Windows.Forms.TreeView()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.OpenContainingFolderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -36,6 +35,7 @@ Partial Class Form1
         Me.GenerateMergedPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GetDependantFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.btnGetDependantFiles = New System.Windows.Forms.Button()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -100,7 +100,6 @@ Partial Class Form1
         '
         'SplitContainer1.Panel1
         '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TextBox3)
         Me.SplitContainer1.Panel1.Controls.Add(Me.TreeView1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label1)
         '
@@ -110,15 +109,6 @@ Partial Class Form1
         Me.SplitContainer1.Size = New System.Drawing.Size(1023, 502)
         Me.SplitContainer1.SplitterDistance = 255
         Me.SplitContainer1.TabIndex = 5
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TextBox3.Location = New System.Drawing.Point(0, 482)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.ReadOnly = True
-        Me.TextBox3.Size = New System.Drawing.Size(255, 20)
-        Me.TextBox3.TabIndex = 4
         '
         'TreeView1
         '
@@ -177,6 +167,7 @@ Partial Class Form1
         '
         'SplitContainer2.Panel2
         '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.TextBox3)
         Me.SplitContainer2.Panel2.Controls.Add(Me.btnGetDependantFiles)
         Me.SplitContainer2.Panel2.Controls.Add(Me.ComboBox2)
         Me.SplitContainer2.Panel2.Controls.Add(Me.ComboBox1)
@@ -188,6 +179,15 @@ Partial Class Form1
         Me.SplitContainer2.Size = New System.Drawing.Size(1023, 591)
         Me.SplitContainer2.SplitterDistance = 502
         Me.SplitContainer2.TabIndex = 8
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.TextBox3.Location = New System.Drawing.Point(0, 65)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.ReadOnly = True
+        Me.TextBox3.Size = New System.Drawing.Size(1023, 20)
+        Me.TextBox3.TabIndex = 12
         '
         'btnGetDependantFiles
         '
@@ -272,7 +272,6 @@ Partial Class Form1
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents SplitContainer2 As System.Windows.Forms.SplitContainer
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents btnGenerateMergedPage As System.Windows.Forms.Button
     Friend WithEvents TreeView1 As System.Windows.Forms.TreeView
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -285,5 +284,6 @@ Partial Class Form1
     Friend WithEvents GenerateMergedPageToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GetDependantFilesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
 
 End Class

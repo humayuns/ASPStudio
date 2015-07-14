@@ -23,7 +23,7 @@ Module RegexPatterns
 
     Function GetListOfMatches(text As String, expression As String) As List(Of String)
         Dim list As New List(Of String)
-        Dim regex = New System.Text.RegularExpressions.Regex(expression, RegexOptions.IgnoreCase)
+        Dim regex = New System.Text.RegularExpressions.Regex(expression, RegexOptions.IgnoreCase Or RegexOptions.Multiline)
         Dim matchResult = regex.Match(text)
         While matchResult.Success
             list.Add(matchResult.Groups(1).Value)
