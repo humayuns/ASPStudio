@@ -26,7 +26,16 @@
             Dim newnode = node.Nodes.Add(s.Replace("../", ""))
             Dim newpath = IO.Path.GetDirectoryName(filename) & "\"
             newnode.Tag = newpath & s
-            Dim newfiletext = IO.File.ReadAllText(newpath & s)
+
+            Dim newfiletext = ""
+            If IO.File.Exists(newpath & s) Then
+                newfiletext = IO.File.ReadAllText(newpath & s)
+            Else
+                newnode.Text &= " (missing)"
+                newnode.ForeColor = Color.Red
+                newnode.EnsureVisible()
+            End If
+
 
             AddNodes(newpath & s, newfiletext, newnode)
         Next
@@ -206,13 +215,13 @@
 
                 Dim filetext = IO.File.ReadAllText(f)
 
-                'AddNodes(f, filetext, newnode)
+                AddNodes(f, filetext, newnode)
 
-                Try
-                    AddNodes(f, filetext, newnode)
-                Catch ex As Exception
-                    MsgBox(ex.ToString)
-                End Try
+                'Try
+                '    AddNodes(f, filetext, newnode)
+                'Catch ex As Exception
+                '    MsgBox(ex.ToString)
+                'End Try
 
 
             End If
