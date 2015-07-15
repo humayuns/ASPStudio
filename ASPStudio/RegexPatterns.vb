@@ -5,6 +5,7 @@ Module RegexPatterns
 
     Public Const ASP_INCLUDE_NEW = "<!--\s*#Include\s*File\s*=\s*""([^""]+)""\s*-->"
     Public Const ASP_INCLUDE = "#include\s*file[\s]*=[\s]*""([^""]+)"""
+    Public Const ASP_SUB_OLD = "[S-s]ub[\s\n]+(\S+)[\s\n]*\("
 
 
     'Regular expression for selecting procedure of classic asp

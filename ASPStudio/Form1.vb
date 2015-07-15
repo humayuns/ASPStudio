@@ -132,7 +132,7 @@
     End Function
 
     Private Function GetSubroutinesList(source As String) As List(Of String)
-        Return RegexPatterns.GetListOfMatches(source, "[S-s]ub[\s\n]+(\S+)[\s\n]*\(")
+        Return RegexPatterns.GetListOfMatches(source, "^\s*sub\s+(\w+)+\(")
     End Function
 
     Private Function GetClassesList(source As String) As List(Of String)
