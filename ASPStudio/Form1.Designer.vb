@@ -35,6 +35,7 @@ Partial Class Form1
         Me.GenerateMergedPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GetDependantFilesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.btnRegexTest = New System.Windows.Forms.Button()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.btnGetDependantFiles = New System.Windows.Forms.Button()
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
@@ -42,7 +43,6 @@ Partial Class Form1
         Me.btnGenerateMergedPage = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.btnRegexTest = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -182,6 +182,16 @@ Partial Class Form1
         Me.SplitContainer2.SplitterDistance = 502
         Me.SplitContainer2.TabIndex = 8
         '
+        'btnRegexTest
+        '
+        Me.btnRegexTest.Location = New System.Drawing.Point(378, 41)
+        Me.btnRegexTest.Name = "btnRegexTest"
+        Me.btnRegexTest.Size = New System.Drawing.Size(84, 23)
+        Me.btnRegexTest.TabIndex = 13
+        Me.btnRegexTest.Text = "Regex Test"
+        Me.btnRegexTest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnRegexTest.UseVisualStyleBackColor = True
+        '
         'TextBox3
         '
         Me.TextBox3.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -244,16 +254,6 @@ Partial Class Form1
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(149, 20)
         Me.TextBox2.TabIndex = 6
-        '
-        'btnRegexTest
-        '
-        Me.btnRegexTest.Location = New System.Drawing.Point(378, 41)
-        Me.btnRegexTest.Name = "btnRegexTest"
-        Me.btnRegexTest.Size = New System.Drawing.Size(84, 23)
-        Me.btnRegexTest.TabIndex = 13
-        Me.btnRegexTest.Text = "Regex Test"
-        Me.btnRegexTest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.btnRegexTest.UseVisualStyleBackColor = True
         '
         'Form1
         '

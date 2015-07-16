@@ -4,10 +4,10 @@ Module RegexPatterns
 
 
     Public Const ASP_INCLUDE_NEW = "<!--\s*#Include\s*File\s*=\s*""([^""]+)""\s*-->"
-    Public Const ASP_INCLUDE = "#include\s*file[\s]*=[\s]*""([^""]+)"""
+    Public Const ASP_INCLUDE = "<!--\s#include\s*file[\s]*=[\s]*""([^""]+)""\s-->" ' "#include\s*file[\s]*=[\s]*""([^""]+)"""
     Public Const ASP_SUB_OLD = "[S-s]ub[\s\n]+(\S+)[\s\n]*\("
 
-    Public Const JAVASCRIPT_INCLUDE = ""
+    Public Const JAVASCRIPT_INCLUDE = "<script\ssrc\s*=[\s]*""([^""]+)""\s*"
 
 
     'Regular expression for selecting procedure of classic asp

@@ -39,6 +39,24 @@
 
             AddNodes(newpath & s, newfiletext, newnode)
         Next
+
+        For Each s In GetListOfJSIncludes(filetext:=filetext)
+            Dim newnode = node.Nodes.Add(s.Replace("../", ""))
+            Dim newpath = IO.Path.GetDirectoryName(filename) & "\"
+            newnode.Tag = newpath & s
+
+            If IO.File.Exists(newpath & s) Or s.Contains("//") Then
+                newnode.ForeColor = Color.Green
+            Else
+                newnode.Text &= " (missing)"
+                newnode.ForeColor = Color.Red
+                newnode.EnsureVisible()
+            End If
+
+
+        Next
+
+
     End Sub
 
 
@@ -62,6 +80,10 @@
 
     Function GetListOfIncludes(filetext As String) As List(Of String)
         Return RegexPatterns.GetListOfMatches(filetext, RegexPatterns.ASP_INCLUDE)
+    End Function
+
+    Function GetListOfJSIncludes(filetext As String) As List(Of String)
+        Return RegexPatterns.GetListOfMatches(filetext, RegexPatterns.JAVASCRIPT_INCLUDE)
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
