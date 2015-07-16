@@ -43,6 +43,12 @@ Module RegexPatterns
         Return matchResult.Value
     End Function
 
+    Function MatchGroups(text As String, expression As String) As GroupCollection
+        Dim regex = New System.Text.RegularExpressions.Regex(expression, RegexOptions.IgnoreCase Or RegexOptions.Multiline)
+        Dim matchResult = regex.Match(text)
+        Return matchResult.Groups
+    End Function
+
 
 
 End Module
