@@ -7,6 +7,8 @@ Module RegexPatterns
     Public Const ASP_INCLUDE = "#include\s*file[\s]*=[\s]*""([^""]+)"""
     Public Const ASP_SUB_OLD = "[S-s]ub[\s\n]+(\S+)[\s\n]*\("
 
+    Public Const JAVASCRIPT_INCLUDE = ""
+
 
     'Regular expression for selecting procedure of classic asp
     ' http://stackoverflow.com/questions/21901096/regular-expression-for-selecting-procedure-of-classic-asp?rq=1
@@ -32,6 +34,13 @@ Module RegexPatterns
         End While
 
         Return list
+    End Function
+
+    Function Match(text As String, expression As String) As String
+        Dim regex = New System.Text.RegularExpressions.Regex(expression, RegexOptions.IgnoreCase Or RegexOptions.Multiline)
+        Dim matchResult = regex.Match(text)
+
+        Return matchResult.Value
     End Function
 
 

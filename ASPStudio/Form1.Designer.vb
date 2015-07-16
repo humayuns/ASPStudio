@@ -42,6 +42,7 @@ Partial Class Form1
         Me.btnGenerateMergedPage = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.btnRegexTest = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -167,6 +168,7 @@ Partial Class Form1
         '
         'SplitContainer2.Panel2
         '
+        Me.SplitContainer2.Panel2.Controls.Add(Me.btnRegexTest)
         Me.SplitContainer2.Panel2.Controls.Add(Me.TextBox3)
         Me.SplitContainer2.Panel2.Controls.Add(Me.btnGetDependantFiles)
         Me.SplitContainer2.Panel2.Controls.Add(Me.ComboBox2)
@@ -243,6 +245,16 @@ Partial Class Form1
         Me.TextBox2.Size = New System.Drawing.Size(149, 20)
         Me.TextBox2.TabIndex = 6
         '
+        'btnRegexTest
+        '
+        Me.btnRegexTest.Location = New System.Drawing.Point(378, 41)
+        Me.btnRegexTest.Name = "btnRegexTest"
+        Me.btnRegexTest.Size = New System.Drawing.Size(84, 23)
+        Me.btnRegexTest.TabIndex = 13
+        Me.btnRegexTest.Text = "Regex Test"
+        Me.btnRegexTest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.btnRegexTest.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AllowDrop = True
@@ -285,5 +297,6 @@ Partial Class Form1
     Friend WithEvents GetDependantFilesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents btnRegexTest As System.Windows.Forms.Button
 
 End Class

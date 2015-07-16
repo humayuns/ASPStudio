@@ -231,4 +231,7 @@
         Next
     End Sub
 
+    Private Sub btnRegexTest_Click(sender As Object, e As EventArgs) Handles btnRegexTest.Click
+        RegexTest.Show()
+    End Sub
 End Class
