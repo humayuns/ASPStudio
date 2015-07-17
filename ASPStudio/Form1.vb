@@ -52,8 +52,20 @@
                 newnode.ForeColor = Color.Red
                 newnode.EnsureVisible()
             End If
+        Next
 
+        For Each s In GetListOfCSSIncludes(filetext:=filetext)
+            Dim newnode = node.Nodes.Add(s.Replace("../", ""))
+            Dim newpath = IO.Path.GetDirectoryName(filename) & "\"
+            newnode.Tag = newpath & s
 
+            If IO.File.Exists(newpath & s) Or s.Contains("//") Then
+                newnode.ForeColor = Color.DeepPink
+            Else
+                newnode.Text &= " (missing)"
+                newnode.ForeColor = Color.Red
+                newnode.EnsureVisible()
+            End If
         Next
 
 
@@ -84,6 +96,10 @@
 
     Function GetListOfJSIncludes(filetext As String) As List(Of String)
         Return RegexPatterns.GetListOfMatches(filetext, RegexPatterns.JAVASCRIPT_INCLUDE)
+    End Function
+
+    Function GetListOfCSSIncludes(filetext As String) As List(Of String)
+        Return RegexPatterns.GetListOfMatches(filetext, RegexPatterns.CSS_INCLUDE)
     End Function
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load

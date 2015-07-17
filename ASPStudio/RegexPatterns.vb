@@ -8,7 +8,7 @@ Module RegexPatterns
     Public Const ASP_SUB_OLD = "[S-s]ub[\s\n]+(\S+)[\s\n]*\("
 
     Public Const JAVASCRIPT_INCLUDE = "<script\ssrc\s*=[\s]*""([^""]+)""\s*"
-
+    Public Const CSS_INCLUDE = "<link\shref\s*=[\s]*""([^""]+)""\s*"
 
     'Regular expression for selecting procedure of classic asp
     ' http://stackoverflow.com/questions/21901096/regular-expression-for-selecting-procedure-of-classic-asp?rq=1

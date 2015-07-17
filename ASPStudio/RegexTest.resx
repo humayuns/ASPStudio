@@ -129,6 +129,6 @@ http://regexr.com/foo.html?q=bar
 
 &lt;script src="test.js"&gt;&lt;/script&gt;
 &lt;!-- #include file="test.asp" --&gt;
-</value>
+&lt;link href="style.css" rel="stylesheet" type="text/css" /&gt;</value>
   </data>
 </root>
