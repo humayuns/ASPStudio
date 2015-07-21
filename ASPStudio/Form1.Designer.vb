@@ -188,9 +188,10 @@ Partial Class Form1
         '
         'btnRegexTest
         '
+        Me.btnRegexTest.Image = Global.ASPStudio.My.Resources.Resources.Services_5724
         Me.btnRegexTest.Location = New System.Drawing.Point(378, 41)
         Me.btnRegexTest.Name = "btnRegexTest"
-        Me.btnRegexTest.Size = New System.Drawing.Size(84, 23)
+        Me.btnRegexTest.Size = New System.Drawing.Size(117, 23)
         Me.btnRegexTest.TabIndex = 13
         Me.btnRegexTest.Text = "Regex Test"
         Me.btnRegexTest.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
