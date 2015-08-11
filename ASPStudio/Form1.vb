@@ -200,6 +200,7 @@
 
     Private Sub btnGetDependantFiles_Click(sender As Object, e As EventArgs) Handles btnGetDependantFiles.Click
 
+        ' this must work well with folders and sub folders
 
         If Not TreeView1.SelectedNode Is Nothing AndAlso TreeView1.SelectedNode.Text <> "" Then
 
